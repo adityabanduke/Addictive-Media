@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Submissions list</h1>
+    <table border="1" width="100%">
+        <tr>
+            <th>sno</th>
+            <th>name</th>
+            <th>date</th>
+            <th>country</th>
+            <th>resume</th>
+            <th>delete submission</th>
+            <th>download resume</th>
+        </tr>
+
+
+        <% if(addictive.length> 0 ){ %>
+            <% for(var i=0 ; i<addictive.length; i++){ %>
+                <tr>
+                    <td>
+                        <%- addictive[i].sno %>
+                    </td>
+                    <td>
+                        <%- addictive[i].name %>
+                    </td>
+                    <td>
+                        <%- addictive[i].date %>
+                    </td>
+                    <td>
+                        <%- addictive[i].country %>
+                    </td>
+                    <td>
+                        <%- addictive[i].resume %>
+                    </td>
+                    <td>
+                        <a href="/delete-submission?sno=<%- addictive[i].sno %>">Delete </a></td>
+                    </td>
+                    <td>
+                        <!-- <a href="/resume">Download </a></td> -->
+                        <!-- <a href="/resume-of-submission?sno=<%- addictive[i].sno %>">Download </a></td> -->
+                        <a href=<%- addictive[i].resume %> %> download >Download Resume</a>
+                    </td>
+                    <!-- <%- addictive[i].resume %> -->
+                </tr>
+                <% } %>
+                    <% }else{ %>
+                        <h1>Submissions not found</h1>
+                        <% } %>
+
+    </table>
+
+
+    <br>
+    <h2>Go to Add Submission Page</h2>
+    <a href="/">Submissions</a>
+</body>
+
+</html>
